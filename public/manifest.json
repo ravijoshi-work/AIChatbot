@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "AI Chatbot",
+  "version": "1.0",
+  "description": "A simple chat interface using AI",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "chatbot.png",
+      "48": "chatbot.png",
+      "128": "chatbot.png"
+    }
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.example.com/"],
+  "icons": {
+    "16": "chatbot.png",
+    "48": "chatbot.png",
+    "128": "chatbot.png"
+  }
+}
