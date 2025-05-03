@@ -7,7 +7,9 @@ function App() {
     <Router>
       <Sidebar>
         <Routes>
+          {/*to avoid chrome extension error */}
           <Route path="/index.html" element={<MessageSection />} />
+          <Route path="/" element={<MessageSection />} />
           <Route path="/chat" element={<MessageSection />} />
           <Route path="/ask" element={<div>Ask Component</div>} />
           <Route path="/search" element={<div>Search Component</div>} />
