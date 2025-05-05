@@ -3,16 +3,39 @@
   "name": "AI Chatbot",
   "version": "1.0",
   "description": "A simple chat interface using AI",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "action": {
-    "default_popup": "index.html",
+    "default_title": "Open Side Panel",
     "default_icon": {
       "16": "chatbot.png",
       "48": "chatbot.png",
       "128": "chatbot.png"
     }
   },
-  "permissions": ["storage"],
-  "host_permissions": ["https://api.example.com/"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "exclude_matches": [
+        "*://*.google.com/_/chrome/*",
+        "*://chrome.google.com/*"
+      ],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "static/js/*.js", "static/css/*.css"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "permissions": ["activeTab", "scripting", "tabs"],
   "icons": {
     "16": "chatbot.png",
     "48": "chatbot.png",

@@ -6,6 +6,13 @@
   scrollbar-width: none;
 }
 
+.sidebar-container{
+  display: flex;
+  /* width: 100px; */
+  flex-direction: column;
+  height: 100vh;
+}
+
 .sidebar {
   height: 100%;
   width: 100px;

@@ -10,7 +10,7 @@ import WriteIcon from "../../assets/icons/copy-writing.png";
 import ImageIcon from "../../assets/icons/image-gallery.png";
 import ChatfileIcon from "../../assets/icons/link.png";
 import VisionIcon from "../../assets/icons/vision.png";
-  
+
 const sidebarItems = [
   { path: "/chat", icon: ChatIcon, label: "Chat" },
   { path: "/ask", icon: AskIcon, label: "Ask" },
@@ -32,7 +32,7 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <>
+    <div className="sidebar-container">
       <header className="header">
         <div className="logo-container">
           <img src={logo} className="logo" alt="logo" />
@@ -43,7 +43,7 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
           className="icon"
           onClick={() => setOpen((prev) => !prev)}
           alt="toggle"
-          style={{cursor:'pointer'}}
+          style={{ cursor: "pointer" }}
         />
       </header>
       <div className="sidebar" style={{ display: open ? "block" : "none" }}>
@@ -58,7 +58,9 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
         {sidebarItems.map((item, index) => (
           <div
             key={item.path}
-            className={`sidebar-item ${location.pathname === item.path ? 'active' : ''}`}
+            className={`sidebar-item ${
+              location.pathname === item.path ? "active" : ""
+            }`}
             onClick={() => handleItemClick(item.path)}
             style={
               index === sidebarItems.length - 1 ? { marginBottom: "60px" } : {}
@@ -70,7 +72,7 @@ const Sidebar = ({ children }: { children: ReactNode }) => {
         ))}
       </div>
       <main>{children}</main>
-    </>
+    </div>
   );
 };
 
